@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factory Map - Autonomous Factory Material Flow Optimization</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <!-- Left Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">AF</div>
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 13px; font-weight: 700; color: #f8fafc; letter-spacing: 0.3px;">AF OPTIMIZER</span>
+          <span style="font-size: 10px; color: #94a3b8;">Factory System</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-title">Operations</div>
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="fleet.html" class="nav-item">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          <span>AGV Fleet</span>
+        </a>
+        <a href="tasks.html" class="nav-item">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          <span>Material Tasks</span>
+        </a>
+        <a href="map.html" class="nav-item active">
+          <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+          <span>Factory Map</span>
+        </a>
+        <a href="optimization.html" class="nav-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Optimization</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div>Facility Alpha &bull; Area 01</div>
+        <div style="margin-top: 4px; color: #059669; font-weight: 500;">● Network Online</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+
+      <!-- Top System Bar -->
+      <header class="app-header">
+        <div class="header-inner">
+          <div class="brand-section">
+            <span class="brand-title">Autonomous Factory Material Flow Optimization</span>
+            <span class="brand-facility">Floor Layout &bull; 2D Positioning</span>
+          </div>
+          <div class="header-meta">
+            <div class="meta-item">
+              <span>System Time:</span>
+              <span id="live-clock" class="meta-timestamp">2026-09-19 02:26:00 UTC+05:30</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Subheader -->
+      <div class="page-subheader">
+        <div class="page-title-row">
+          <div class="title-area">
+            <h1>Factory Map</h1>
+            <p class="subtitle">2D facility floor layout and AGV positioning</p>
+          </div>
+
+          <div class="system-status-pills">
+            <div class="status-chip">
+              <span class="label">Monitored Zones:</span>
+              <span class="val">8 Areas</span>
+            </div>
+            <div class="status-chip">
+              <span class="label">Fleet on Map:</span>
+              <span class="val">5 AGVs</span>
+            </div>
+            <div class="status-chip">
+              <span class="label">Active Routes:</span>
+              <span class="val" style="color: #1e40af;">2 Running</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Map Layout Container -->
+      <main class="dashboard-container">
+
+        <div class="map-grid">
+
+          <!-- Left Column: Map Card with Quick Selector, SVG Canvas, and Legend -->
+          <div class="map-card">
+            
+            <!-- Quick AGV Selector Bar -->
+            <div class="agv-quick-selector">
+              <span style="font-size: 11px; font-weight: 600; color: var(--text-muted); align-self: center; margin-right: 4px;">SELECT VEHICLE:</span>
+              <button type="button" class="agv-chip-btn" data-agv-id="AGV-01">AGV-01</button>
+              <button type="button" class="agv-chip-btn active" data-agv-id="AGV-02">AGV-02 (In Transit)</button>
+              <button type="button" class="agv-chip-btn" data-agv-id="AGV-03">AGV-03 (Charging)</button>
+              <button type="button" class="agv-chip-btn" data-agv-id="AGV-04">AGV-04</button>
+              <button type="button" class="agv-chip-btn" data-agv-id="AGV-05">AGV-05 (Maint.)</button>
+            </div>
+
+            <!-- SVG 2D Canvas Container -->
+            <div class="map-canvas-container">
+              <svg class="map-svg" viewBox="0 0 920 530" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <!-- Subtle Grid Pattern -->
+                  <pattern id="floor-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#edf2f7" stroke-width="0.8"/>
+                  </pattern>
+                  
+                  <!-- Arrowhead marker for paths -->
+                  <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#94a3b8" />
+                  </marker>
+                  <marker id="arrow-active" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb" />
+                  </marker>
+                </defs>
+
+                <!-- Background Floor Grid -->
+                <rect width="920" height="530" fill="#fcfdfe"/>
+                <rect width="920" height="530" fill="url(#floor-grid)"/>
+
+                <!-- ================= TRAVEL PATHS ================= -->
+                <!-- Main Facility Outer Travel Loop -->
+                <path d="M 140 180 L 140 330 L 385 330 L 385 260 L 635 260" class="svg-path" />
+                <path d="M 140 180 L 385 180 L 635 180" class="svg-path" />
+                <path d="M 385 130 L 385 180" class="svg-path" />
+                <path d="M 385 330 L 385 390" class="svg-path" />
+                <path d="M 635 150 L 635 180" class="svg-path" />
+                <path d="M 635 320 L 635 390" class="svg-path" />
+                <path d="M 725 435 L 745 435" class="svg-path" />
+
+                <!-- Active Dispatch Path: Storage A [Source] -> Production Station 2 [Dest] -->
+                <path d="M 140 150 L 140 260 L 540 260" class="svg-path-active" marker-end="url(#arrow-active)" />
+
+                <!-- ================= 8 FACTORY AREAS / STATIONS ================= -->
+
+                <!-- 1. Storage Area A (Source Point) -->
+                <g id="zone-storage-a">
+                  <rect x="40" y="35" width="200" height="115" rx="5" class="svg-zone zone-storage"/>
+                  <text x="55" y="65" class="svg-zone-title">Storage Area A</text>
+                  <text x="55" y="83" class="svg-zone-sub">Raw Materials &amp; Sheet Metal</text>
+                  <text x="55" y="100" class="svg-zone-sub">Bay A1 &ndash; A04 &bull; Infeed Ready</text>
+                  
+                  <!-- Source Point Badge -->
+                  <rect x="55" y="115" width="76" height="18" rx="3" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+                  <text x="62" y="128" font-family="-apple-system, sans-serif" font-size="9" font-weight="700" fill="#1e40af">[S] SOURCE</text>
+                </g>
+
+                <!-- 2. Storage Area B -->
+                <g id="zone-storage-b">
+                  <rect x="40" y="375" width="200" height="115" rx="5" class="svg-zone zone-storage"/>
+                  <text x="55" y="405" class="svg-zone-title">Storage Area B</text>
+                  <text x="55" y="423" class="svg-zone-sub">Components, Coils &amp; Hardware</text>
+                  <text x="55" y="440" class="svg-zone-sub">Rack B-01 &ndash; B-12 &bull; Active</text>
+                </g>
+
+                <!-- 3. Loading Area -->
+                <g id="zone-loading-area">
+                  <rect x="295" y="35" width="180" height="95" rx="5" class="svg-zone zone-transfer"/>
+                  <text x="310" y="65" class="svg-zone-title">Loading Area</text>
+                  <text x="310" y="83" class="svg-zone-sub">Inbound Transfer Dock L1</text>
+                  <text x="310" y="100" class="svg-zone-sub">Automated Pallet Lifter</text>
+                </g>
+
+                <!-- 4. Unloading Area -->
+                <g id="zone-unloading-area">
+                  <rect x="295" y="390" width="180" height="95" rx="5" class="svg-zone zone-transfer"/>
+                  <text x="310" y="420" class="svg-zone-title">Unloading Area</text>
+                  <text x="310" y="438" class="svg-zone-sub">Outbound Buffer &amp; Sort U1</text>
+                  <text x="310" y="455" class="svg-zone-sub">Inspection Transfer Station</text>
+                </g>
+
+                <!-- 5. Production Station 1 -->
+                <g id="zone-production-1">
+                  <rect x="535" y="35" width="200" height="115" rx="5" class="svg-zone zone-production"/>
+                  <text x="550" y="65" class="svg-zone-title">Production Station 1</text>
+                  <text x="550" y="83" class="svg-zone-sub">Sub-Assembly &amp; Sensor Wiring</text>
+                  <text x="550" y="100" class="svg-zone-sub">Cell 01 &bull; Active Shift</text>
+                </g>
+
+                <!-- 6. Production Station 2 (Destination Point) -->
+                <g id="zone-production-2">
+                  <rect x="535" y="195" width="200" height="125" rx="5" class="svg-zone zone-production"/>
+                  <text x="550" y="225" class="svg-zone-title">Production Station 2</text>
+                  <text x="550" y="243" class="svg-zone-sub">Heavy Stamping &amp; Press Bay</text>
+                  <text x="550" y="260" class="svg-zone-sub">Station Infeed Platform</text>
+                  
+                  <!-- Destination Point Badge -->
+                  <rect x="550" y="278" width="105" height="18" rx="3" fill="#fee2e2" stroke="#fca5a5" stroke-width="1"/>
+                  <text x="557" y="291" font-family="-apple-system, sans-serif" font-size="9" font-weight="700" fill="#991b1b">[D] DESTINATION</text>
+                </g>
+
+                <!-- 7. Charging Station -->
+                <g id="zone-charging-station">
+                  <rect x="535" y="390" width="180" height="95" rx="5" class="svg-zone zone-charging"/>
+                  <text x="550" y="420" class="svg-zone-title">Charging Station</text>
+                  <text x="550" y="438" class="svg-zone-sub">4x Inductive Fast-Charge Pads</text>
+                  <text x="550" y="455" class="svg-zone-sub">Pad 01 &ndash; 04 &bull; 400V 60kW</text>
+                </g>
+
+                <!-- 8. Maintenance Area -->
+                <g id="zone-maintenance-area">
+                  <rect x="740" y="390" width="150" height="95" rx="5" class="svg-zone zone-maintenance"/>
+                  <text x="752" y="420" class="svg-zone-title">Maintenance Area</text>
+                  <text x="752" y="438" class="svg-zone-sub">Service Bay 01</text>
+                  <text x="752" y="455" class="svg-zone-sub">Calibration &amp; Diagnostics</text>
+                </g>
+
+
+                <!-- ================= 5 INTERACTIVE AGV MARKERS ================= -->
+
+                <!-- AGV-01: at Storage Area A -->
+                <g class="svg-agv-marker" data-agv-id="AGV-01" transform="translate(140, 110)">
+                  <circle cx="0" cy="0" r="22" class="agv-ring" fill="none" opacity="0"/>
+                  <rect x="-38" y="-12" width="76" height="24" rx="12" fill="#0f172a" stroke="#cbd5e1" stroke-width="1" class="agv-body"/>
+                  <circle cx="-26" cy="0" r="4" fill="#059669"/>
+                  <text x="-16" y="4" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#ffffff">AGV-01</text>
+                </g>
+
+                <!-- AGV-02: En Route (Active) along Central Corridor -->
+                <g class="svg-agv-marker selected" data-agv-id="AGV-02" transform="translate(410, 260)">
+                  <circle cx="0" cy="0" r="24" class="agv-ring" fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="4 2"/>
+                  <rect x="-38" y="-12" width="76" height="24" rx="12" fill="#0f172a" stroke="#2563eb" stroke-width="2" class="agv-body"/>
+                  <circle cx="-26" cy="0" r="4" fill="#2563eb"/>
+                  <text x="-16" y="4" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#ffffff">AGV-02</text>
+                </g>
+
+                <!-- AGV-03: at Charging Station -->
+                <g class="svg-agv-marker" data-agv-id="AGV-03" transform="translate(625, 445)">
+                  <circle cx="0" cy="0" r="22" class="agv-ring" fill="none" opacity="0"/>
+                  <rect x="-38" y="-12" width="76" height="24" rx="12" fill="#0f172a" stroke="#cbd5e1" stroke-width="1" class="agv-body"/>
+                  <circle cx="-26" cy="0" r="4" fill="#d97706"/>
+                  <text x="-16" y="4" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#ffffff">AGV-03</text>
+                </g>
+
+                <!-- AGV-04: at Loading Area -->
+                <g class="svg-agv-marker" data-agv-id="AGV-04" transform="translate(385, 95)">
+                  <circle cx="0" cy="0" r="22" class="agv-ring" fill="none" opacity="0"/>
+                  <rect x="-38" y="-12" width="76" height="24" rx="12" fill="#0f172a" stroke="#cbd5e1" stroke-width="1" class="agv-body"/>
+                  <circle cx="-26" cy="0" r="4" fill="#2563eb"/>
+                  <text x="-16" y="4" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#ffffff">AGV-04</text>
+                </g>
+
+                <!-- AGV-05: at Maintenance Area -->
+                <g class="svg-agv-marker" data-agv-id="AGV-05" transform="translate(815, 445)">
+                  <circle cx="0" cy="0" r="22" class="agv-ring" fill="none" opacity="0"/>
+                  <rect x="-38" y="-12" width="76" height="24" rx="12" fill="#0f172a" stroke="#cbd5e1" stroke-width="1" class="agv-body"/>
+                  <circle cx="-26" cy="0" r="4" fill="#991b1b"/>
+                  <text x="-16" y="4" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#ffffff">AGV-05</text>
+                </g>
+
+              </svg>
+            </div>
+
+            <!-- Small Map Legend -->
+            <div class="map-legend-bar">
+              <span class="legend-title">Map Legend:</span>
+              <div class="legend-item">
+                <span class="legend-swatch agv"></span>
+                <span>AGV</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-swatch storage"></span>
+                <span>Storage</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-swatch production"></span>
+                <span>Production</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-swatch charging"></span>
+                <span>Charging</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-swatch maintenance"></span>
+                <span>Maintenance</span>
+              </div>
+              <div class="legend-item" style="margin-left: auto;">
+                <span style="display: inline-block; width: 16px; height: 2px; border-bottom: 2px dashed #2563eb; vertical-align: middle;"></span>
+                <span>Active Travel Path</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Selected AGV Telemetry Panel -->
+          <aside class="map-telemetry-panel" aria-label="Selected AGV Telemetry Panel">
+            <div class="telemetry-card-header">
+              <span class="panel-title">AGV Telemetry</span>
+              <span class="action-indicator">Live 2D Feed</span>
+            </div>
+
+            <div class="telemetry-body">
+              <div class="telemetry-hero">
+                <div>
+                  <div class="telemetry-agv-id" id="panel-agv-id">AGV-02</div>
+                  <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Heavy Pallet Carrier &bull; L-1200</div>
+                </div>
+                <span class="badge badge-in-transit" id="panel-status-badge">
+                  <span class="dot"></span>In Transit
+                </span>
+              </div>
+
+              <div class="telemetry-fields">
+                
+                <!-- Battery Field -->
+                <div class="field-block">
+                  <div class="field-label">Battery Level</div>
+                  <div class="battery-wrapper" style="margin-top: 3px;">
+                    <div class="battery-bar" style="width: 70px;">
+                      <div class="battery-fill" id="panel-battery-fill" style="width: 76%"></div>
+                    </div>
+                    <span class="battery-text" id="panel-battery-text">76%</span>
+                  </div>
+                </div>
+
+                <!-- Current Location -->
+                <div class="field-block">
+                  <div class="field-label">Current Location</div>
+                  <div class="field-value" id="panel-location">Main Transit Corridor</div>
+                  <div class="field-subtext" id="panel-sublocation">Node N-14 -&gt; Production 2 Infeed</div>
+                </div>
+
+                <!-- Current Task -->
+                <div class="field-block">
+                  <div class="field-label">Current Task</div>
+                  <div class="field-value" id="panel-current-task">TSK-201: Steel Parts (450 kg)</div>
+                  <div class="field-subtext" id="panel-load-status">Loaded (Sheet Metal Pallet)</div>
+                </div>
+
+                <!-- Destination -->
+                <div class="field-block">
+                  <div class="field-label">Destination</div>
+                  <div class="field-value" style="color: #991b1b;" id="panel-destination">Production Station 2</div>
+                  <div class="field-subtext" id="panel-next-checkpoint">Intersection C-2 (Est. 45s)</div>
+                </div>
+
+                <!-- Travel Speed -->
+                <div class="field-block">
+                  <div class="field-label">Operating Speed</div>
+                  <div class="field-value mono" id="panel-speed">1.2 m/s</div>
+                  <div class="field-subtext">Nominal corridor travel velocity</div>
+                </div>
+
+              </div>
+
+            </div>
+          </aside>
+
+        </div>
+
+      </main>
+
+    </div> <!-- /app-main -->
+
+  </div> <!-- /app-layout -->
+
+  <script src="map.js"></script>
+</body>
+</html>

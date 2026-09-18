@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGV Fleet - Autonomous Factory Material Flow Optimization</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <!-- Left Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">AF</div>
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 13px; font-weight: 700; color: #f8fafc; letter-spacing: 0.3px;">AF OPTIMIZER</span>
+          <span style="font-size: 10px; color: #94a3b8;">Factory System</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-title">Operations</div>
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="fleet.html" class="nav-item active">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          <span>AGV Fleet</span>
+        </a>
+        <a href="tasks.html" class="nav-item">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          <span>Material Tasks</span>
+        </a>
+        <a href="map.html" class="nav-item">
+          <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+          <span>Factory Map</span>
+        </a>
+        <a href="optimization.html" class="nav-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Optimization</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div>Facility Alpha &bull; Area 01</div>
+        <div style="margin-top: 4px; color: #059669; font-weight: 500;">● Network Online</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+
+      <!-- Top System Bar -->
+      <header class="app-header">
+        <div class="header-inner">
+          <div class="brand-section">
+            <span class="brand-title">Autonomous Factory Material Flow Optimization</span>
+            <span class="brand-facility">Fleet Management Console</span>
+          </div>
+          <div class="header-meta">
+            <div class="meta-item">
+              <span>System Time:</span>
+              <span id="live-clock" class="meta-timestamp">2026-09-19 02:17:00 UTC+05:30</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Title & Subheader -->
+      <div class="page-subheader">
+        <div class="page-title-row">
+          <div class="title-area">
+            <h1>AGV Fleet</h1>
+            <p class="subtitle">Real-time vehicle status and telemetry monitoring</p>
+          </div>
+
+          <div class="system-status-pills">
+            <div class="status-chip">
+              <span class="label">Total Units:</span>
+              <span class="val">5</span>
+            </div>
+            <div class="status-chip">
+              <span class="label">Available:</span>
+              <span class="val" style="color: #065f46;">2</span>
+            </div>
+            <div class="status-chip">
+              <span class="label">Busy:</span>
+              <span class="val" style="color: #1e40af;">1</span>
+            </div>
+            <div class="status-chip">
+              <span class="label">Charging:</span>
+              <span class="val" style="color: #d97706;">1</span>
+            </div>
+            <div class="status-chip">
+              <span class="label">Maintenance:</span>
+              <span class="val" style="color: #991b1b;">1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fleet Container -->
+      <main class="dashboard-container">
+
+        <div class="fleet-grid">
+
+          <!-- Fleet Master Table Panel -->
+          <section class="section-panel" aria-label="AGV Fleet List">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <h2 class="panel-title">Active Fleet</h2>
+                <span class="panel-counter">5 Vehicles</span>
+              </div>
+              <div class="panel-actions">
+                <span class="action-indicator">Click row to view details</span>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="industrial-table">
+                <thead>
+                  <tr>
+                    <th style="width: 120px;">AGV ID</th>
+                    <th>Current Location</th>
+                    <th style="width: 140px;">Battery</th>
+                    <th style="width: 140px;">Status</th>
+                    <th>Current Task</th>
+                  </tr>
+                </thead>
+                <tbody id="fleet-table-body">
+                  <!-- Dynamic content populated by fleet.js, pre-rendered static fallback below -->
+                  <tr class="selectable-row selected" data-agv-id="AGV-01">
+                    <td class="id-cell">AGV-01</td>
+                    <td>
+                      <div>Storage A</div>
+                      <div class="sub-location">Rack A-04, Zone 1</div>
+                    </td>
+                    <td>
+                      <div class="battery-wrapper">
+                        <div class="battery-bar">
+                          <div class="battery-fill" style="width: 92%"></div>
+                        </div>
+                        <span class="battery-text">92%</span>
+                      </div>
+                    </td>
+                    <td><span class="badge badge-available"><span class="dot"></span>Available</span></td>
+                    <td><span class="text-muted">No Task</span></td>
+                  </tr>
+                  <tr class="selectable-row" data-agv-id="AGV-02">
+                    <td class="id-cell">AGV-02</td>
+                    <td>
+                      <div>Production B</div>
+                      <div class="sub-location">Workcell B-02 Infeed</div>
+                    </td>
+                    <td>
+                      <div class="battery-wrapper">
+                        <div class="battery-bar">
+                          <div class="battery-fill" style="width: 76%"></div>
+                        </div>
+                        <span class="battery-text">76%</span>
+                      </div>
+                    </td>
+                    <td><span class="badge badge-active"><span class="dot"></span>Busy</span></td>
+                    <td><span class="task-cell-link">TASK-002</span></td>
+                  </tr>
+                  <tr class="selectable-row" data-agv-id="AGV-03">
+                    <td class="id-cell">AGV-03</td>
+                    <td>
+                      <div>Charging Station</div>
+                      <div class="sub-location">Dock Pad #02</div>
+                    </td>
+                    <td>
+                      <div class="battery-wrapper">
+                        <div class="battery-bar">
+                          <div class="battery-fill" style="width: 31%"></div>
+                        </div>
+                        <span class="battery-text">31%</span>
+                      </div>
+                    </td>
+                    <td><span class="badge badge-charging"><span class="dot"></span>Charging</span></td>
+                    <td><span class="text-muted">No Task</span></td>
+                  </tr>
+                  <tr class="selectable-row" data-agv-id="AGV-04">
+                    <td class="id-cell">AGV-04</td>
+                    <td>
+                      <div>Storage C</div>
+                      <div class="sub-location">Aisle C-08, Bay 2</div>
+                    </td>
+                    <td>
+                      <div class="battery-wrapper">
+                        <div class="battery-bar">
+                          <div class="battery-fill" style="width: 84%"></div>
+                        </div>
+                        <span class="battery-text">84%</span>
+                      </div>
+                    </td>
+                    <td><span class="badge badge-available"><span class="dot"></span>Available</span></td>
+                    <td><span class="text-muted">No Task</span></td>
+                  </tr>
+                  <tr class="selectable-row" data-agv-id="AGV-05">
+                    <td class="id-cell">AGV-05</td>
+                    <td>
+                      <div>Maintenance Area</div>
+                      <div class="sub-location">Service Bay 01</div>
+                    </td>
+                    <td>
+                      <div class="battery-wrapper">
+                        <div class="battery-bar">
+                          <div class="battery-fill low" style="width: 15%"></div>
+                        </div>
+                        <span class="battery-text low">15%</span>
+                      </div>
+                    </td>
+                    <td><span class="badge badge-low-battery"><span class="dot"></span>Maintenance</span></td>
+                    <td><span class="text-muted">No Task</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- AGV Details Panel -->
+          <aside class="details-panel" aria-label="AGV Details Panel">
+            <div class="details-panel-header">
+              <span class="panel-title">AGV Details</span>
+              <span class="action-indicator" id="detail-completed-count">24 Completed</span>
+            </div>
+
+            <div class="details-panel-body">
+              <div class="details-header-row">
+                <div class="details-agv-id" id="detail-agv-id">AGV-01</div>
+                <span class="badge badge-available" id="detail-status-badge">
+                  <span class="dot"></span>Available
+                </span>
+              </div>
+
+              <div class="details-props-grid">
+                <div class="prop-card">
+                  <div class="prop-label">Battery Level</div>
+                  <div class="battery-wrapper" style="margin-top: 4px;">
+                    <div class="battery-bar" style="width: 60px;">
+                      <div class="battery-fill" id="detail-battery-fill" style="width: 92%"></div>
+                    </div>
+                    <span class="battery-text" id="detail-battery-val">92%</span>
+                  </div>
+                </div>
+
+                <div class="prop-card">
+                  <div class="prop-label">Current Location</div>
+                  <div class="prop-value" id="detail-location">Storage A</div>
+                  <div class="sub-location" id="detail-sublocation">Rack A-04, Zone 1</div>
+                </div>
+
+                <div class="prop-card">
+                  <div class="prop-label">Current Task</div>
+                  <div class="prop-value" id="detail-current-task">
+                    <span class="text-muted">No Task</span>
+                  </div>
+                </div>
+
+                <div class="prop-card">
+                  <div class="prop-label">Vehicle Model</div>
+                  <div class="prop-value" id="detail-model">L-Cart 1200 Pro</div>
+                </div>
+              </div>
+
+              <div class="details-section-title">
+                <span>Completed Tasks (Recent)</span>
+                <span style="font-size: 10px; color: var(--text-muted);">SIMULATED LOG</span>
+              </div>
+
+              <ul class="completed-tasks-list" id="detail-completed-tasks">
+                <li class="completed-task-item">
+                  <div>
+                    <span class="completed-task-id">TASK-098</span>
+                    <span style="color: var(--text-secondary); margin-left: 8px;">Raw Steel Sheets</span>
+                  </div>
+                  <div class="completed-task-meta">Storage A &rarr; Press Bay 1 &bull; 14 min ago</div>
+                </li>
+                <li class="completed-task-item">
+                  <div>
+                    <span class="completed-task-id">TASK-089</span>
+                    <span style="color: var(--text-secondary); margin-left: 8px;">Stamping Dies Set #3</span>
+                  </div>
+                  <div class="completed-task-meta">Tool Crib &rarr; Press Bay 2 &bull; 42 min ago</div>
+                </li>
+                <li class="completed-task-item">
+                  <div>
+                    <span class="completed-task-id">TASK-074</span>
+                    <span style="color: var(--text-secondary); margin-left: 8px;">Fastener Bins (x12)</span>
+                  </div>
+                  <div class="completed-task-meta">Storage A &rarr; Assembly Line 1 &bull; 1 hr 15m ago</div>
+                </li>
+              </ul>
+
+              <div style="margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted);">
+                <span>Lifetime Run Hours:</span>
+                <span id="detail-operating-hours" class="prop-value mono" style="font-size: 11px;">1,420 hrs</span>
+              </div>
+
+            </div>
+          </aside>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="fleet.js"></script>
+</body>
+</html>
