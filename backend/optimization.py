@@ -1,7 +1,10 @@
 import math
 import heapq
 from typing import Dict, List, Tuple
-from .models import OptimizationRequest, OptimizationResponse, AGVEvaluationResult
+try:
+    from .models import OptimizationRequest, OptimizationResponse, AGVEvaluationResult
+except ImportError:
+    from models import OptimizationRequest, OptimizationResponse, AGVEvaluationResult
 
 # Factory Graph Nodes with 2D Coordinates
 FACTORY_NODES: Dict[str, Tuple[float, float]] = {

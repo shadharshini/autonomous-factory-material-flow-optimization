@@ -4,7 +4,7 @@
  * Connects to FastAPI Backend at http://127.0.0.1:8001/api/optimize
  */
 
-const BACKEND_API_URL = "http://127.0.0.1:8001";
+const BACKEND_API_URL = window.BACKEND_API_URL || "http://127.0.0.1:8001";
 
 /**
  * Shows an error banner with a clear message

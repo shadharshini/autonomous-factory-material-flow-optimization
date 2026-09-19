@@ -1,7 +1,11 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from .models import HealthResponse, OptimizationRequest, OptimizationResponse
-from .optimization import run_optimization
+try:
+    from .models import HealthResponse, OptimizationRequest, OptimizationResponse
+    from .optimization import run_optimization
+except ImportError:
+    from models import HealthResponse, OptimizationRequest, OptimizationResponse
+    from optimization import run_optimization
 
 app = FastAPI(
     title="Autonomous Factory Material Flow Optimization API",

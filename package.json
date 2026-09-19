@@ -1,0 +1,19 @@
+{
+  "name": "autonomous-factory-material-flow-optimization",
+  "version": "1.0.0",
+  "description": "Autonomous Factory Material Flow Optimization (SI-04)",
+  "scripts": {
+    "build": "node -c dashboard.js fleet.js tasks.js map.js optimization.js",
+    "test": "node -c dashboard.js fleet.js tasks.js map.js optimization.js",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": [
+    "autonomous-factory",
+    "agv",
+    "material-flow",
+    "optimization",
+    "fastapi"
+  ],
+  "author": "Shadharshini M",
+  "license": "MIT"
+}
